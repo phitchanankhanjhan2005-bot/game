@@ -1,26 +1,131 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #183222;
+  background: #eef8f1;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== HEADER ===== */
+.siteHeader {
+  background: linear-gradient(135deg, #0f6b38, #2eaa61);
+  color: white;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 15px rgba(15, 107, 56, 0.25);
+}
+
+/* ===== CONTAINER ===== */
+.navbar,
+.page {
+  width: min(100% - 2rem, 70rem);
+  margin-inline: auto;
+}
+
+/* ===== NAVIGATION ===== */
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.75rem 0;
+  list-style: none;
+}
+
+.navLink {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  transition: 0.25s;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ===== PAGE ===== */
+.page {
+  padding-block: 3rem;
+}
+
+/* ===== COURSE GRID ===== */
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(16rem, 1fr)
+  );
+  gap: 1.5rem;
+}
+
+/* ===== COURSE CARD ===== */
+.courseCard {
+  position: relative;
+  overflow: hidden;
+  padding: 1.75rem;
+  border: none;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 5px 20px rgba(20, 80, 40, 0.1);
+  transition: 0.3s ease;
+}
+
+/* แถบเขียวด้านบนการ์ด */
+.courseCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    #0f6b38,
+    #43c878
+  );
+}
+
+/* ตอนเอาเมาส์วาง */
+.courseCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(20, 100, 50, 0.18);
+}
+
+/* ===== HEADINGS ===== */
+.courseCard h2,
+.courseCard h3 {
+  margin-top: 0.5rem;
+  color: #126b38;
+}
+
+/* ===== TEXT ===== */
+.courseCard p {
+  color: #52665a;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .navList {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .navLink {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .page {
+    padding-block: 2rem;
+  }
+
+  .courseGrid {
+    grid-template-columns: 1fr;
+  }
 }
