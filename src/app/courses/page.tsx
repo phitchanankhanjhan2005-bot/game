@@ -1,26 +1,24 @@
+import type { Metadata } from "next";
+
 import CoursesCard from "../../components/courseCard";
 import { courses } from "../data/coursesdata";
+import CourseExplorer from "@/components/CourseExplorer";
 
+export const metadata: Metadata = {
+  title: "รายวิชาทั้งหมด",
+};
 export default function CoursesPage() {
   return (
-    <main className="coursePage">
-      <div className="courseContainer">
-
-        <div className="courseHeader">
-          <h1>📚 My Courses</h1>
-          <p>รายวิชาที่กำลังศึกษา</p>
-        </div>
-
-        <div className="courseGrid">
+    <>
+      <CourseExplorer initialCourses={courses as any} />
+      {/* <div className="courseGrid">
           {courses.map((course, index) => (
             <CoursesCard
               key={course.id ?? index}
               course={course}
             />
           ))}
-        </div>
-
-      </div>
-    </main>
+        </div> */}
+    </>
   );
 }

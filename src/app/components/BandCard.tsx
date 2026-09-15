@@ -1,15 +1,26 @@
+"use client"
+
 import Image from "next/image"
-import { Band } from "../types/band"
+import type { Band } from "../types/band"
 
 type BandCardProps = {
+  // Props = ส่งข้อมูลจาก BandsPage ไป BandCard
   band: Band
+  isFollowing: boolean
+  likeCount: number
+  onToggleFollow: (id: number) => void
+  onToggleLike: (id: number) => void
 }
 
-export default function BandCard({ band }: BandCardProps) {
+export default function BandCard({
+  band,
+  isFollowing,
+  likeCount,
+  onToggleFollow,
+  onToggleLike,
+}: BandCardProps) {
   return (
     <div className="bandCard">
-
-      {/* รูปวง */}
       <div className="bandImage">
         <Image
           src={band.image}
@@ -20,9 +31,7 @@ export default function BandCard({ band }: BandCardProps) {
         />
       </div>
 
-      {/* ข้อมูลวง */}
       <div className="bandInfo">
-
         <h2 className="bandName">
           {band.name}
         </h2>
@@ -35,12 +44,35 @@ export default function BandCard({ band }: BandCardProps) {
           {band.description}
         </p>
 
-        {/* สมาชิก */}
+        <div className="bandActions">
+          {/* onClick = ทำงานเมื่อกดปุ่ม */}
+          <button
+            type="button"
+            className={`followButton ${
+              isFollowing ? "following" : ""
+            }`}
+            onClick={() => onToggleFollow(band.id)}
+          >
+            {/* ? : = เช็กสถานะแล้วเปลี่ยนข้อความ */}
+            {isFollowing ? "ยกเลิกติดตาม" : "ติดตาม"}
+          </button>
+
+          {/* ปุ่ม Like */}
+          <button
+            type="button"
+            className="likeButton"
+            onClick={() => onToggleLike(band.id)}
+          >
+            ♥ {likeCount}
+          </button>
+        </div>
+
         <h3 className="memberTitle">
           Members
         </h3>
 
         <div className="memberList">
+          {/* map = วนข้อมูลสมาชิกทีละคน */}
           {band.members.map((member) => (
             <div
               key={member.id}
@@ -68,7 +100,6 @@ export default function BandCard({ band }: BandCardProps) {
             </div>
           ))}
         </div>
-
       </div>
     </div>
   )

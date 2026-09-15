@@ -1,0 +1,621 @@
+/* =========================
+   Game Backlog - Pastel
+   ========================= */
+
+.games-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      #fff1f8 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      #e8e0ff 0%,
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #fdfbff 0%,
+      #f5f9ff 50%,
+      #fff8fb 100%
+    );
+
+  color: #000000;
+  padding: 40px 20px;
+}
+
+.games-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Header
+   ========================= */
+
+.games-header {
+  margin-bottom: 30px;
+}
+
+.games-header h1 {
+  margin: 0;
+
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1px;
+
+  background: linear-gradient(
+    90deg,
+    #a78bca,
+    #8eb8e8,
+    #8dcfd0
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.games-header p {
+  margin-top: 8px;
+
+  color: #000000;
+  font-size: 16px;
+}
+
+/* =========================
+   Form
+   ========================= */
+
+.game-form {
+  background: rgba(255, 255, 255, 0.88);
+
+  border: 1px solid #eadff0;
+  border-radius: 18px;
+
+  padding: 25px;
+  margin-bottom: 35px;
+
+  box-shadow:
+    0 15px 40px rgba(180, 160, 200, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  backdrop-filter: blur(12px);
+}
+
+.game-form h2 {
+  margin: 0 0 20px;
+
+  font-size: 22px;
+  color: #000000;
+}
+
+/* =========================
+   Grid
+   ========================= */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #756b80;
+}
+
+/* =========================
+   Inputs
+   ========================= */
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 1px solid #dfd4e8;
+  border-radius: 10px;
+
+  background: #fff;
+
+  color: #5c5367;
+
+  padding: 11px 13px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #b9a7df;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(185, 167, 223, 0.18);
+
+  background: #fffaff;
+}
+
+.form-group input::placeholder {
+  color: #b0a7b9;
+}
+
+/* =========================
+   Error
+   ========================= */
+
+.form-error {
+  margin: 0;
+
+  color: #d98298;
+  font-size: 13px;
+}
+
+/* =========================
+   Buttons
+   ========================= */
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+
+  margin-top: 22px;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+
+  padding: 11px 20px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s,
+    opacity 0.15s,
+    box-shadow 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Primary - ม่วงพาสเทล */
+
+.btn-primary {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #b7a1dc,
+    #91b7df
+  );
+
+  box-shadow:
+    0 8px 20px
+    rgba(163, 140, 204, 0.25);
+}
+
+.btn-primary:hover {
+  box-shadow:
+    0 10px 25px
+    rgba(163, 140, 204, 0.35);
+}
+
+/* Secondary - ฟ้าพาสเทล */
+
+.btn-secondary {
+  color: #61758a;
+
+  background: #e2f0f8;
+}
+
+.btn-secondary:hover {
+  background: #d5e9f3;
+}
+
+/* Danger - ชมพูพาสเทล */
+
+.btn-danger {
+  color: #a65f72;
+
+  background: #f8dce3;
+}
+
+.btn-danger:hover {
+  background: #f3ccd6;
+}
+
+/* Link */
+
+.btn-link {
+  color: #7188a5;
+
+  text-decoration: none;
+
+  border: 1px solid #dce4ef;
+
+  background: #f1f6fb;
+}
+
+.btn-link:hover {
+  background: #e7f0f8;
+}
+
+/* =========================
+   Game List
+   ========================= */
+
+.games-list-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+}
+
+.games-list-header h2 {
+  margin: 0;
+
+  font-size: 24px;
+  color: #675b73;
+}
+
+.game-count {
+  color: #9b91a5;
+
+  font-size: 14px;
+}
+
+/* =========================
+   Cards
+   ========================= */
+
+.games-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+.game-card {
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  border: 1px solid #ebe2f0;
+  border-radius: 16px;
+
+  padding: 20px;
+
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #c9b8df;
+
+  box-shadow:
+    0 15px 35px
+    rgba(180, 160, 200, 0.18);
+}
+
+.game-card h3 {
+  margin: 0 0 15px;
+
+  font-size: 19px;
+
+  color: #63576e;
+}
+
+.game-info {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  margin-bottom: 18px;
+}
+
+.game-info p {
+  margin: 0;
+
+  color: #968d9e;
+
+  font-size: 14px;
+}
+
+.game-info strong {
+  color: #6b6173;
+}
+
+/* =========================
+   Status
+   ========================= */
+
+.status {
+  display: inline-flex;
+
+  width: fit-content;
+
+  padding: 5px 10px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ยังไม่เริ่ม - เหลือง */
+
+.status-not-started {
+  color: #9a7a3c;
+
+  background: #fff1c9;
+}
+
+/* กำลังเล่น - เขียว */
+
+.status-playing {
+  color: #5d896d;
+
+  background: #dcf1e2;
+}
+
+/* เสร็จแล้ว - ฟ้า */
+
+.status-finished {
+  color: #637fa1;
+
+  background: #dcecf8;
+}
+
+/* =========================
+   Card Actions
+   ========================= */
+
+.game-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.game-actions .btn {
+  padding: 8px 13px;
+
+  font-size: 13px;
+}
+
+/* =========================
+   Empty
+   ========================= */
+
+.empty-games {
+  text-align: center;
+
+  padding: 50px 20px;
+
+  border: 1px dashed #d8cce2;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  color: #9b91a5;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 768px) {
+  .games-page {
+    padding: 25px 15px;
+  }
+
+  .games-header h1 {
+    font-size: 32px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full {
+    grid-column: auto;
+  }
+
+  .games-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-form {
+    padding: 18px;
+  }
+
+  .games-header h1 {
+    font-size: 28px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+}
+/* =========================
+   Easy Read Typography
+   ========================= */
+
+.games-page {
+  /* ฟอนต์อ่านง่าย */
+  font-family:
+    "Inter",
+    "Noto Sans Thai",
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  /* สีตัวหนังสือหลักเข้มขึ้น */
+  color: #3f3a46;
+
+  /* ระยะห่างตัวหนังสือ */
+  line-height: 1.6;
+}
+
+/* Header */
+
+.games-header h1 {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.games-header p {
+  color: #625b6b;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Form */
+
+.game-form h2 {
+  color: #3f3948;
+  font-weight: 700;
+}
+
+.form-group label {
+  color: #4b4353;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Input */
+
+.form-group input,
+.form-group select {
+  color: #38323e;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+.form-group input::placeholder {
+  color: #817889;
+  opacity: 1;
+}
+
+/* Game List */
+
+.games-list-header h2 {
+  color: #3f3948;
+  font-weight: 750;
+}
+
+.game-count {
+  color: #665e6d;
+  font-weight: 500;
+}
+
+/* Cards */
+
+.game-card h3 {
+  color: #3d3745;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.game-info p {
+  color: #625a69;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.game-info strong {
+  color: #403947;
+  font-weight: 700;
+}
+
+/* Status */
+
+.status {
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Buttons */
+
+.btn {
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* Error */
+
+.form-error {
+  color: #b84f68;
+  font-weight: 600;
+}
+
+/* Empty */
+
+.empty-games {
+  color: #665e6d;
+  font-size: 15px;
+  line-height: 1.7;
+}
